@@ -1,0 +1,380 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    direction: rtl;
+    padding: 15px;
+}
+
+.container {
+    background: white;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 700;
+}
+
+.game-info {
+    margin-bottom: 25px;
+}
+
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 12px;
+    gap: 10px;
+}
+
+.score {
+    font-weight: bold;
+    color: #555;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    text-align: center;
+    flex: 1;
+}
+
+.status {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    font-weight: bold;
+    padding: 12px;
+    border-radius: 10px;
+    background: #e3f2fd;
+    color: #1976d2;
+    margin: 10px 0;
+}
+
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 8px;
+    margin: 25px 0;
+    background: #2c3e50;
+    padding: 12px;
+    border-radius: 15px;
+    aspect-ratio: 1;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cell {
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 8vw, 4rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 3px solid #ddd;
+    min-height: 80px;
+}
+
+.cell:hover {
+    background: #f8f9fa;
+    transform: scale(1.02);
+}
+
+.cell:active {
+    transform: scale(0.98);
+}
+
+.cell.x {
+    color: #e74c3c;
+}
+
+.cell.o {
+    color: #3498db;
+}
+
+.cell.winner {
+    background: #2ecc71;
+    color: white;
+    animation: pulse 0.6s ease-in-out 2;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    min-width: 120px;
+    max-width: 200px;
+}
+
+#restart-btn {
+    background: #3498db;
+    color: white;
+}
+
+#restart-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+#reset-score-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+#reset-score-btn:hover {
+    background: #c0392b;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+/* تنسيقات الـ Footer */
+.site-footer {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+    color: white;
+    text-align: center;
+    padding: 20px 15px;
+    margin-top: 30px;
+    border-radius: 15px;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.1);
+    border-top: 3px solid #3498db;
+    width: 100%;
+    max-width: 500px;
+}
+
+.site-footer p {
+    margin: 0;
+    font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+    font-weight: 600;
+    color: #ecf0f1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* تأثيرات hover للـ Footer */
+.site-footer:hover {
+    background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+    transform: translateY(-2px);
+    transition: all 0.3s ease;
+}
+
+/* تحسينات للهواتف الصغيرة */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px 15px;
+        margin: 10px;
+        border-radius: 15px;
+    }
+    
+    h1 {
+        margin-bottom: 15px;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .score {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .game-board {
+        grid-gap: 6px;
+        padding: 10px;
+        margin: 20px 0;
+    }
+    
+    .cell {
+        min-height: 70px;
+        font-size: clamp(1.8rem, 10vw, 3rem);
+        border-width: 2px;
+    }
+    
+    .controls {
+        gap: 10px;
+    }
+    
+    button {
+        padding: 10px 20px;
+        min-width: 110px;
+    }
+    
+    .site-footer {
+        padding: 15px 10px;
+        margin-top: 20px;
+        border-radius: 12px;
+    }
+    
+    .site-footer p {
+        font-size: 0.9rem;
+    }
+}
+
+/* تحسينات للأجهزة اللوحية */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .container {
+        max-width: 600px;
+        padding: 30px;
+    }
+    
+    .game-board {
+        max-width: 450px;
+    }
+    
+    .cell {
+        min-height: 100px;
+        font-size: 3.5rem;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .site-footer {
+        max-width: 600px;
+    }
+}
+
+/* تحسينات للشاشات الكبيرة */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 500px;
+    }
+    
+    .game-board {
+        max-width: 400px;
+    }
+    
+    .cell {
+        min-height: 90px;
+    }
+    
+    .cell:hover {
+        transform: scale(1.05);
+    }
+    
+    .site-footer {
+        max-width: 500px;
+    }
+}
+
+/* تحسينات للأجهزة ذات الشاشات الصغيرة جداً */
+@media (max-width: 320px) {
+    .container {
+        padding: 15px 10px;
+    }
+    
+    .cell {
+        min-height: 60px;
+        font-size: 1.5rem;
+    }
+    
+    button {
+        min-width: 100px;
+        padding: 8px 16px;
+    }
+    
+    .score-board {
+        padding: 8px;
+    }
+    
+    .site-footer {
+        padding: 12px 8px;
+    }
+}
+
+/* تحسينات للتوجيه الأفقي في الهواتف */
+@media (max-height: 500px) and (orientation: landscape) {
+    .container {
+        padding: 15px;
+        max-width: 90%;
+    }
+    
+    .game-board {
+        max-width: 300px;
+        margin: 15px auto;
+    }
+    
+    .cell {
+        min-height: 60px;
+        font-size: 2rem;
+    }
+    
+    h1 {
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+    
+    .game-info {
+        margin-bottom: 15px;
+    }
+    
+    .site-footer {
+        margin-top: 15px;
+        padding: 12px;
+    }
+}
+
+/* تأثيرات إضافية للتفاعل */
+.cell {
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* تحسينات للوصول */
+@media (prefers-reduced-motion: reduce) {
+    .cell, button {
+        transition: none;
+    }
+    
+    .cell.winner {
+        animation: none;
+    }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لعبة XO ضد الكمبيوتر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>لعبة XO ضد الذكاء الاصطناعي</h1>
+        
+        <div class="game-info">
+            <div class="score-board">
+                <div class="score">أنت: <span id="player-score">0</span></div>
+                <div class="score">تعادلات: <span id="tie-score">0</span></div>
+                <div class="score">ذكاء الاصطناعي: <span id="computer-score">0</span></div>
+            </div>
+            
+            <div class="status" id="status">دورك: أنت تبدأ!</div>
+        </div>
+
+        <div class="game-board" id="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <div class="controls">
+            <button id="restart-btn">إعادة اللعبة</button>
+            <button id="reset-score-btn">إعادة النقاط</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <p>created by ENG/ GEORGE AYMIN </p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
